@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useForm, ValidationError } from '@formspree/react';
 import { HxSymbol } from './components/HxLogo';
 import { CheckPositionPage } from './components/CheckPositionPage';
+import { Navbar } from './components/Navbar';
+import { HeroThreeAnimation } from './components/HeroThreeAnimation';
 import { X, Loader2, KeyRound, Copy, Check, ArrowRight, ShieldCheck, AlertTriangle } from 'lucide-react';
 
 interface JoinedCandidate {
@@ -15,6 +17,7 @@ interface JoinedCandidate {
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'check-position'>('home');
+  const [navbarTab, setNavbarTab] = useState<'home' | 'cfd' | 'mbse' | 'benchmarks'>('home');
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
   const [formspreeState, handleFormspreeSubmit] = useForm('mjybyyvg');
@@ -109,7 +112,7 @@ export default function App() {
     setCurrentView('check-position');
   };
 
-  if (currentView === 'check-position' || currentView === 'roster') {
+  if (currentView === 'check-position') {
     return (
       <CheckPositionPage
         onBack={() => setCurrentView('home')}
@@ -123,27 +126,29 @@ export default function App() {
     <div className="relative min-h-screen w-full bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col justify-between p-6 sm:p-10 overflow-hidden">
       {/* Top Header */}
       <header className="w-full flex justify-between items-center z-10">
-        <div className="flex items-center space-x-2">
-          <HxSymbol className="h-5 sm:h-6 md:h-6.5 w-auto object-contain shrink-0" />
-        </div>
-
-        <button
-          onClick={() => setCurrentView('check-position')}
-          className="text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white transition-colors duration-200 bg-black hover:bg-[#121214] px-4 py-2 rounded-full border border-zinc-800 hover:border-zinc-700 flex items-center space-x-2 active:scale-[0.98] cursor-pointer"
-        >
-          <KeyRound className="w-3.5 h-3.5 text-zinc-400" />
-          <span>Check Position</span>
-        </button>
+        <Navbar
+          activeTab={navbarTab}
+          setActiveTab={setNavbarTab}
+          onOpenWaitlist={() => {
+            setWaitlistStep('form');
+            setIsWaitlistOpen(true);
+          }}
+        />
       </header>
 
       {/* Main Centered Hero Content */}
-      <main className="my-auto flex flex-col items-center justify-center text-center max-w-3xl mx-auto space-y-6 sm:space-y-8 z-10 px-4">
+      <main className="my-auto flex flex-col items-center justify-center text-center max-w-3xl mx-auto space-y-6 sm:space-y-8 z-10 px-4 relative">
+        {/* Three.js Titanium Animation Background */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <HeroThreeAnimation />
+        </div>
+
         {/* Logo Badge Line: HX CFD | HX MBSE */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-white text-base sm:text-lg md:text-xl font-medium tracking-tight"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-white text-base sm:text-lg md:text-xl font-medium tracking-tight relative z-10"
         >
           <div className="inline-flex items-center gap-2">
             <HxSymbol className="h-5 sm:h-6 md:h-6.5 w-auto object-contain shrink-0" />

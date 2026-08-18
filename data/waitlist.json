@@ -1,0 +1,17 @@
+{
+  "lastIndex": 1,
+  "candidates": [
+    {
+      "id": "HX001",
+      "candidateId": "HX001",
+      "index": 1,
+      "email": "hasexlabs@gmail.com",
+      "joinedAt": "2026-08-17T15:51:51.380Z",
+      "joinedDate": "2026-08-17T15:51:51.380Z",
+      "status": "CANCELLED",
+      "tokenHash": "d88f6e5a664b5f89ec013e6d042cf334b0f5c02052f6538a58d53bb277ef59a9",
+      "isVerified": true,
+      "cancelledAt": "2026-08-17T15:55:34.312Z"
+    }
+  ]
+}

@@ -1,20 +1,18 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+<img width="1200" height="475" alt="HX Engineering" src="public/horizontal-lander.png" />
 </div>
 
-# Run and deploy your AI Studio app
+# HX Engineering
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/5f85c6d7-b335-4a6a-a033-5cb23f53c31d
+Next-generation CFD and MBSE engineering platform - Engineering Without the Barriers.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Configure environment variables in [.env.local](.env.local)
 3. Run the app:
+   `npm run dev`
    `npm run dev`

@@ -2,5 +2,5 @@
   "name": "HX Engineering",
   "description": "Next-generation CFD and MBSE engineering platform - Engineering Without the Barriers.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

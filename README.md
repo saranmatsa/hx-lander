@@ -8,11 +8,10 @@ Next-generation CFD and MBSE engineering platform - Engineering Without the Barr
 
 ## Run Locally
 
-**Prerequisites:** Node.js
+**Prerequisites:** Node.js 18+
 
 1. Install dependencies:
    `npm install`
 2. Configure environment variables in [.env.local](.env.local)
 3. Run the app:
-   `npm run dev`
    `npm run dev`
